@@ -17,4 +17,15 @@
 **** visit ****[ Django ] (https://docs.djangoproject.com/en/3.2/)
 
 -------------------------------------------------------------
-# IMAGES about project 
+# IMAGES 
+----------------------------------
+## Signup page 
+<img src="img/home.png" height="400">
+
+-----------------
+## Login Page
+<img src="img/login.png" height="400">
+
+------------------------------
+## profile(Dashboard)
+<img src="img/dashboard.png" height="400">
