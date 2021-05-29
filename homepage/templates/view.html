@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12 ">
+            <h1 class=" text-center alert alert-info">Data </h1>
+            <button class="btn btn-danger btn-sm">
+                <a  class = "btn btn-danger"href="{% url 'profile' %}">Back</a>
+            </button>
+            <table class="table mt-2 ">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">Title</th>
+                        <th scope="col">Desc</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success">
+                        <td>{{form.title}}</td>
+                        <td>{{form.desc}}</td>
+                        <td>{{form.startdate}}</td>
+                        <td>{{form.enddate}}</td>                 
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock content %}

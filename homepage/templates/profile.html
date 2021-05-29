@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block design %}
+ form{
+  display:inline;
+}
+
+{% endblock design %}
+
+{% block content %}
+
+<h1 class="text-center alert alert-primary">Welcome {{request.user.get_full_name}}</h1>
+<div class="container">
+    <div class="row">
+        {% comment %} <div class="col-m-4 offset-10">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-warning" type="submit" value="Add Task">
+            </form>
+        </div> {% endcomment %}
+        <div class="col-sm-12">
+            <form action="{% url 'task' %}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-warning" type="submit" value="Add Task">
+            </form>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-danger float-end" type="submit" value="logout">
+            </form>
+
+            {% if form %}
+                <table class="table mt-2 ">
+                    <thead>
+                        <tr>
+                            <th class ="table-primary" scope="col">SNo</th>
+                            <th class ="table-primary" scope="col">Title</th>
+                            <th class ="table-primary" scope="col">Desc</th>
+                            <th class ="table-primary" scope="col">Start Date</th>
+                            <th class ="table-primary" scope="col">End Date</th>
+                            <th class ="table-primary" scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for fm in form %}
+                        <tr class="table-dark">
+                            <td>{{forloop.counter}}</td>
+                            <td>{{fm.title}}</td>
+                            <td>{{fm.desc|truncatechars:45}}</td>
+                            <td>{{fm.startdate}}</td>
+                            <td>{{fm.enddate}}</td>
+                            <td>
+                                <form action="{% url 'viewdata' fm.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="btn btn-primary btn-sm " type="submit" value="View">
+                                </form>
+
+                                {% comment %} <form action="{% url 'edit' fm.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="btn btn-warning btn-sm" type="submit" value="Edit">
+                                </form> {% endcomment %}
+
+                                <form action="{% url 'done' fm.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="btn btn-success btn-sm" type="submit" value="Done">
+                                </form>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <h2 class="alert alert-danger d-block mt-5">No Task Added </h2>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock content %}
