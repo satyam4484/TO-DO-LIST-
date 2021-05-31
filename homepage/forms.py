@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class DateInput(forms.DateInput):
     input_type = 'date'
 
-
+<div style="width:312px;max-width:100%;"><div style="height:0;padding-bottom:55.77%;position:relative;"><iframe width="312" height="174" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/5be81p"></iframe></div><p><a href="https://imgflip.com/gif/5be81p">via Imgflip</a></p></div>
 
 class todoform(forms.ModelForm):
     title=forms.CharField(label_suffix = ' ',widget =forms.TextInput(attrs={'class':'form-control'}))
